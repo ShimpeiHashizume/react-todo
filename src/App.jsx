@@ -48,15 +48,23 @@ export const App = () => {
         todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       /> */}
       <div className="input-area">
         <input
           placeholder="TODOを入力"
           value={todoText}
           onChange={onChangeTodoText}
+          // disabled={disabled}
         />
         <button onClick={onClickAdd}>追加</button>
       </div>
+      {incompleteTodos.length >= 5 && (
+        <p style={{ color: "red" }}>
+          登録できるtodo5個までだよ〜。消化しろ〜。
+        </p>
+      )}
+
       <IncompleteTodos
         todos={incompleteTodos}
         onClickComplete={onClickComplete}
